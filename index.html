@@ -287,6 +287,7 @@ footer{background:var(--dark);padding:48px 2% 24px;margin-top:64px}
     <button class="cat-nav-btn" onclick="filterCategory('canopy',this)">⛽ Canopy Lights</button>
     <button class="cat-nav-btn" onclick="filterCategory('office',this)">🏢 Office & Interior</button>
     <button class="cat-nav-btn" onclick="filterCategory('accessories',this)">🔧 Accessories</button>
+    <button class="cat-nav-btn" onclick="filterCategory('linear',this)">🔆 Linear Lights</button>
   </div>
 </nav>
 
@@ -317,6 +318,15 @@ footer{background:var(--dark);padding:48px 2% 24px;margin-top:64px}
         <div class="filter-item"><input type="checkbox" id="f-canopy" onchange="applyFilters()"><label for="f-canopy">Canopy Lights</label><span class="count">4</span></div>
         <div class="filter-item"><input type="checkbox" id="f-office" onchange="applyFilters()"><label for="f-office">Office & Interior</label><span class="count">6</span></div>
         <div class="filter-item"><input type="checkbox" id="f-accessories" onchange="applyFilters()"><label for="f-accessories">Accessories</label><span class="count">3</span></div>
+        <div class="filter-item"><input type="checkbox" id="f-linear" onchange="applyFilters()"><label for="f-linear">Linear Lights</label><span class="count">12</span></div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Nominal Length</div>
+      <div class="filter-group">
+        <div class="filter-item"><input type="checkbox" id="nl1" onchange="applyFilters()"><label for="nl1">2 ft</label><span class="count">4</span></div>
+        <div class="filter-item"><input type="checkbox" id="nl2" onchange="applyFilters()"><label for="nl2">3 ft</label><span class="count">4</span></div>
+        <div class="filter-item"><input type="checkbox" id="nl3" onchange="applyFilters()"><label for="nl3">4 ft</label><span class="count">4</span></div>
       </div>
     </div>
     <div class="sidebar-section">
@@ -334,7 +344,7 @@ footer{background:var(--dark);padding:48px 2% 24px;margin-top:64px}
         <div class="filter-item"><input type="checkbox" id="ct1" onchange="applyFilters()"><label for="ct1">3000K – Warm White</label></div>
         <div class="filter-item"><input type="checkbox" id="ct2" onchange="applyFilters()"><label for="ct2">4000K – Neutral White</label></div>
         <div class="filter-item"><input type="checkbox" id="ct3" onchange="applyFilters()"><label for="ct3">5000K – Daylight</label></div>
-        <div class="filter-item"><input type="checkbox" id="ct4" onchange="applyFilters()"><label for="ct4">5700K – Cool White</label></div>
+        <div class="filter-item"><input type="checkbox" id="ct4" onchange="applyFilters()"><label for="ct4">CCT Selectable</label></div>
       </div>
     </div>
     <div class="sidebar-section">
@@ -365,7 +375,7 @@ footer{background:var(--dark);padding:48px 2% 24px;margin-top:64px}
   <!-- MAIN -->
   <main class="main-content">
     <div class="toolbar">
-      <p class="result-count"><strong id="productCount">26</strong> products found</p>
+      <p class="result-count"><strong id="productCount">38</strong> products found</p>
       <div class="toolbar-right">
         <select class="sort-select" onchange="sortProducts(this.value)">
           <option value="featured">Sort: Featured</option>
@@ -608,6 +618,24 @@ const PRODUCTS = [
   {id:24,sku:'LUM-ACC-MS360',name:'360° Occupancy Sensor — 0–10V Dimming',category:'accessories',watts:null,lumens:null,cct:null,cri:null,price:28,origPrice:null,badge:null,rating:4.5,reviews:66,stock:'in-stock',emoji:'📡',specs:{Type:'360° Occupancy Sensor',Output:'0–10V Dimming',Range:'40 ft diameter',Delay:'30 sec – 30 min',Voltage:'120–277V AC',IP:'IP44'},desc:'Add occupancy sensing to any compatible LED high bay or fixture. Easy clip-mount on UFO fixtures.'},
   {id:25,sku:'LUM-ACC-PHOTOCELL',name:'Dusk-to-Dawn Photocell',category:'accessories',watts:null,lumens:null,cct:null,cri:null,price:14,origPrice:null,badge:null,rating:4.3,reviews:44,stock:'in-stock',emoji:'🌙',specs:{Type:'Twist-Lock Photocell',Input:'120–277V',Set:'Turn on at dusk, off at dawn',IP:'IP65'},desc:'Universal twist-lock photocell for wall packs and outdoor fixtures. IP65 rated for harsh environments.'},
   {id:26,sku:'LUM-ACC-MOUNTARM',name:'Slipfitter Mount Arm — Parking Lot',category:'accessories',watts:null,lumens:null,cct:null,cri:null,price:22,origPrice:null,badge:'new',rating:4.4,reviews:31,stock:'in-stock',emoji:'🔧',specs:{Type:'Slipfitter Arm',Fits:'2-3/8" tenon',Material:'Die-cast aluminum',Finish:'Bronze powder coat',Adjustable:'0–15°'},desc:'Heavy-duty slipfitter arm for mounting shoebox lights on standard pole tenons. Adjustable 0–15° tilt.'},
+
+  // ── LINEAR LIGHTS ── 2 ft
+  {id:27,sku:'LUM-LL-2FT-9-3K',name:'2 ft 9W LED Linear Lamp — 3000K Warm White',category:'linear',nominalLength:'2ft',watts:9,lumens:850,cct:'3000K',cri:80,price:8,origPrice:null,badge:null,rating:4.5,reviews:62,stock:'in-stock',emoji:'💡',specs:{Watts:'9W',Nominal:'2 ft',CCT:'3000K Warm White',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years',Replaces:'17W T8'},desc:'Direct-wire 2 ft T8 replacement. Bypass the ballast for maximum efficiency and a longer lifespan. Warm white tone ideal for retail and hospitality.'},
+  {id:28,sku:'LUM-LL-2FT-9-4K',name:'2 ft 9W LED Linear Lamp — 4000K Neutral White',category:'linear',nominalLength:'2ft',watts:9,lumens:900,cct:'4000K',cri:80,price:8,origPrice:null,badge:'best',rating:4.7,reviews:114,stock:'in-stock',emoji:'💡',specs:{Watts:'9W',Nominal:'2 ft',CCT:'4000K Neutral White',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years',Replaces:'17W T8'},desc:'Our best-selling 2 ft tube in neutral white — perfect for offices, break rooms, and utility spaces. Crisp light without the harshness of daylight.'},
+  {id:29,sku:'LUM-LL-2FT-9-5K',name:'2 ft 9W LED Linear Lamp — 5000K Daylight',category:'linear',nominalLength:'2ft',watts:9,lumens:950,cct:'5000K',cri:80,price:8,origPrice:null,badge:null,rating:4.5,reviews:48,stock:'in-stock',emoji:'💡',specs:{Watts:'9W',Nominal:'2 ft',CCT:'5000K Daylight',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years',Replaces:'17W T8'},desc:'Bright daylight output for garages, workshops, and task lighting areas where visibility is critical.'},
+  {id:30,sku:'LUM-LL-2FT-9-CCT',name:'2 ft 9W LED Linear Lamp — CCT Selectable',category:'linear',nominalLength:'2ft',watts:9,lumens:950,cct:'CCT Selectable',cri:80,price:11,origPrice:null,badge:'new',rating:4.8,reviews:37,stock:'in-stock',emoji:'💡',specs:{Watts:'9W',Nominal:'2 ft',CCT:'3000K / 4000K / 5000K Selectable',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years'},desc:'Switch between 3000K, 4000K, and 5000K using the toggle on the tube before installation. One SKU covers every application.'},
+
+  // ── LINEAR LIGHTS ── 3 ft
+  {id:31,sku:'LUM-LL-3FT-13-3K',name:'3 ft 13W LED Linear Lamp — 3000K Warm White',category:'linear',nominalLength:'3ft',watts:13,lumens:1250,cct:'3000K',cri:80,price:10,origPrice:null,badge:null,rating:4.4,reviews:29,stock:'in-stock',emoji:'💡',specs:{Watts:'13W',Nominal:'3 ft',CCT:'3000K Warm White',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years',Replaces:'25W T8'},desc:'3 ft warm white tube for counter displays, under-cabinet fixtures, and accent lighting in commercial settings.'},
+  {id:32,sku:'LUM-LL-3FT-13-4K',name:'3 ft 13W LED Linear Lamp — 4000K Neutral White',category:'linear',nominalLength:'3ft',watts:13,lumens:1300,cct:'4000K',cri:80,price:10,origPrice:null,badge:'best',rating:4.6,reviews:88,stock:'in-stock',emoji:'💡',specs:{Watts:'13W',Nominal:'3 ft',CCT:'4000K Neutral White',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years',Replaces:'25W T8'},desc:'Neutral white 3 ft tube — the most popular size for 3-lamp fixtures in classrooms and light commercial spaces.'},
+  {id:33,sku:'LUM-LL-3FT-13-5K',name:'3 ft 13W LED Linear Lamp — 5000K Daylight',category:'linear',nominalLength:'3ft',watts:13,lumens:1350,cct:'5000K',cri:80,price:10,origPrice:null,badge:null,rating:4.5,reviews:41,stock:'in-stock',emoji:'💡',specs:{Watts:'13W',Nominal:'3 ft',CCT:'5000K Daylight',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years',Replaces:'25W T8'},desc:'Daylight 3 ft tube for warehousing aisles, cooler cases, and any area that needs maximum visibility.'},
+  {id:34,sku:'LUM-LL-3FT-13-CCT',name:'3 ft 13W LED Linear Lamp — CCT Selectable',category:'linear',nominalLength:'3ft',watts:13,lumens:1350,cct:'CCT Selectable',cri:80,price:13,origPrice:null,badge:'new',rating:4.7,reviews:22,stock:'in-stock',emoji:'💡',specs:{Watts:'13W',Nominal:'3 ft',CCT:'3000K / 4000K / 5000K Selectable',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years'},desc:'Field-selectable color temperature on the tube itself. Stock one item, dial in the look on-site.'},
+
+  // ── LINEAR LIGHTS ── 4 ft
+  {id:35,sku:'LUM-LL-4FT-18-3K',name:'4 ft 18W LED Linear Lamp — 3000K Warm White',category:'linear',nominalLength:'4ft',watts:18,lumens:1750,cct:'3000K',cri:80,price:12,origPrice:null,badge:null,rating:4.5,reviews:57,stock:'in-stock',emoji:'💡',specs:{Watts:'18W',Nominal:'4 ft',CCT:'3000K Warm White',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years',Replaces:'32W T8'},desc:'Warm white 4 ft tube for lobbies, showrooms, and hospitality spaces. Direct ballast-bypass wire for long-term reliability.'},
+  {id:36,sku:'LUM-LL-4FT-18-4K',name:'4 ft 18W LED Linear Lamp — 4000K Neutral White',category:'linear',nominalLength:'4ft',watts:18,lumens:1800,cct:'4000K',cri:80,price:12,origPrice:null,badge:'best',rating:4.7,reviews:203,stock:'in-stock',emoji:'💡',specs:{Watts:'18W',Nominal:'4 ft',CCT:'4000K Neutral White',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years',Replaces:'32W T8'},desc:'The industry-standard 4 ft T8 replacement. Neutral white is our #1 volume seller for offices, schools, and retail retrofits.'},
+  {id:37,sku:'LUM-LL-4FT-18-5K',name:'4 ft 18W LED Linear Lamp — 5000K Daylight',category:'linear',nominalLength:'4ft',watts:18,lumens:1900,cct:'5000K',cri:80,price:12,origPrice:16,badge:'sale',rating:4.6,reviews:137,stock:'in-stock',emoji:'💡',specs:{Watts:'18W',Nominal:'4 ft',CCT:'5000K Daylight',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years',Replaces:'32W T8'},desc:'High-output daylight 4 ft tube. Great for auto service, warehousing, and industrial facilities where task visibility is everything.'},
+  {id:38,sku:'LUM-LL-4FT-18-CCT',name:'4 ft 18W LED Linear Lamp — CCT Selectable',category:'linear',nominalLength:'4ft',watts:18,lumens:1900,cct:'CCT Selectable',cri:80,price:15,origPrice:null,badge:'new',rating:4.8,reviews:74,stock:'in-stock',emoji:'💡',specs:{Watts:'18W',Nominal:'4 ft',CCT:'3000K / 4000K / 5000K Selectable',CRI:'80+',Base:'G13 (Medium Bi-Pin)',Type:'Type B Ballast Bypass',Voltage:'120–277V AC',Warranty:'5 Years'},desc:'Flip the selector switch before install to choose 3000K, 4000K, or 5000K. Simplify your inventory — one tube replaces three SKUs.'},
 ];
 
 let cart = [];
@@ -629,7 +657,14 @@ function getFilteredProducts(){
   if(document.getElementById('f-canopy')?.checked) cats.push('canopy');
   if(document.getElementById('f-office')?.checked) cats.push('office');
   if(document.getElementById('f-accessories')?.checked) cats.push('accessories');
+  if(document.getElementById('f-linear')?.checked) cats.push('linear');
   if(cats.length) items = items.filter(p => cats.includes(p.category));
+  // Nominal Length
+  const nlFilters = [];
+  if(document.getElementById('nl1')?.checked) nlFilters.push('2ft');
+  if(document.getElementById('nl2')?.checked) nlFilters.push('3ft');
+  if(document.getElementById('nl3')?.checked) nlFilters.push('4ft');
+  if(nlFilters.length) items = items.filter(p => p.nominalLength && nlFilters.includes(p.nominalLength));
   // Wattage
   const wFilters = [];
   if(document.getElementById('w1')?.checked) wFilters.push(w=>w<50);
@@ -637,6 +672,13 @@ function getFilteredProducts(){
   if(document.getElementById('w3')?.checked) wFilters.push(w=>w>100&&w<=200);
   if(document.getElementById('w4')?.checked) wFilters.push(w=>w>200);
   if(wFilters.length) items = items.filter(p => p.watts && wFilters.some(f=>f(p.watts)));
+  // Color Temperature
+  const ctFilters = [];
+  if(document.getElementById('ct1')?.checked) ctFilters.push('3000K');
+  if(document.getElementById('ct2')?.checked) ctFilters.push('4000K');
+  if(document.getElementById('ct3')?.checked) ctFilters.push('5000K');
+  if(document.getElementById('ct4')?.checked) ctFilters.push('CCT');
+  if(ctFilters.length) items = items.filter(p => p.cct && ctFilters.some(c => p.cct.includes(c)));
   // Price
   const minP = parseFloat(document.getElementById('priceMin')?.value)||0;
   const maxP = parseFloat(document.getElementById('priceMax')?.value)||Infinity;
@@ -705,7 +747,7 @@ function filterCategory(cat, btn){
 }
 function applyFilters(){ renderProducts(); }
 function clearFilters(){
-  ['f-bay','f-parking','f-canopy','f-office','f-accessories','w1','w2','w3','w4','ct1','ct2','ct3','ct4','av1','av2','rt1','rt2'].forEach(id=>{const el=document.getElementById(id);if(el)el.checked=false;});
+  ['f-bay','f-parking','f-canopy','f-office','f-accessories','f-linear','nl1','nl2','nl3','w1','w2','w3','w4','ct1','ct2','ct3','ct4','av1','av2','rt1','rt2'].forEach(id=>{const el=document.getElementById(id);if(el)el.checked=false;});
   document.getElementById('priceMin').value='';
   document.getElementById('priceMax').value='';
   activeCategory='all';
